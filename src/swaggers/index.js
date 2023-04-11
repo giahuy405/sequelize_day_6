@@ -1,9 +1,14 @@
 /**
  * @swagger
- *  /api/user/get-all-user:
- *  get:
+ *  /api/like/like-res/{user_id}/{res_id}
+ *  post:
  *      description: responses
- *      tags: [User]
+ *      tags: [Like]
+ *      parameters:
+ *      - in: path
+ *        name: user_id
+ *       - in: path
+ *        name: res_id
  *      responses:
  *          200: 
  *              description: success   
@@ -12,7 +17,7 @@
 
 /**
  * @swagger
- * /api/user/get-user-pagination/{page}/{pageSize}:
+ * /api/like/list-like-res/{res_id}
  *  get:
  *      description: responses
  *      tags: [User]

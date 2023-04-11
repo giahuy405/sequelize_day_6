@@ -36,6 +36,7 @@ class rate_res extends Sequelize.Model {
     sequelize,
     tableName: 'rate_res',
     timestamps: false,
+    updatedAt: false,
     indexes: [
       {
         name: "PRIMARY",
