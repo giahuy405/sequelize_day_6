@@ -61,32 +61,28 @@ const listLikeResAndUser = async (req, res) => {
         errorCode(res, 'lỗi BE')
     }
 }
-
-
 // lấy danh sách like theo nhà hàng
 const listLikeRes = async (req, res) => {
     try {
-        const { res_id } = req.params;
-
-        // kiểm tra id hợp lệ hay k
-        const resIsExist = await models.restaurant.findByPk(res_id);
-        if (!resIsExist) {
-            return failCode(res, 'Id is not exist', "");
-        }
-
         const likes = await models.like_res.findAll({
-            where: {
-                res_id
-            },
-            // lấy theo restaurant id thì include thằng 'user'
-            include: ['user']
+            include: ['re']
         });
-        successCode(res, "get list res and user successflly ", likes);
+        successCode(res, "get list res  successflly ", likes);
     } catch (err) {
         errorCode(res, 'lỗi BE')
     }
 }
-
+// lấy danh sách like theo user
+const listLikeUser = async (req, res) => {
+    try {
+        const likes = await models.like_res.findAll({
+            include: ['user']
+        });
+        successCode(res, "get list user successflly ", likes);
+    } catch (err) {
+        errorCode(res, 'lỗi BE')
+    }
+}
 module.exports = {
-    likeRes, listLikeResAndUser, listLikeRes
+    likeRes, listLikeResAndUser, listLikeRes, listLikeUser
 }

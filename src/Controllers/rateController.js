@@ -30,11 +30,33 @@ const listRate = async (req, res) => {
 
             include: ['user', 're']
         });
-        successCode(res, "list rate of student and user ", listRating);
+        successCode(res, "list rate all", listRating);
+    } catch (err) {
+        errorCode(res, 'lỗi BE')
+    }
+}
+const listRateRes = async (req, res) => {
+    try {
+        // danh sách đánh giá
+        const listRating = await models.rate_res.findAll({
+            include: ['re']
+        });
+        successCode(res, "list rate of res ", listRating);
+    } catch (err) {
+        errorCode(res, 'lỗi BE')
+    }
+}
+const listRateUser = async (req, res) => {
+    try {
+        // danh sách đánh giá
+        const listRating = await models.rate_res.findAll({
+            include: ['user']
+        });
+        successCode(res, "list rate of user ", listRating);
     } catch (err) {
         errorCode(res, 'lỗi BE')
     }
 }
 module.exports = {
-    addNewRate, listRate
+    addNewRate, listRate,listRateRes,listRateUser
 }

@@ -76,6 +76,14 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "list like user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -92,6 +100,22 @@
 				},
 				{
 					"name": "list rate res and user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "list rate res",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "list rate user",
 					"request": {
 						"method": "GET",
 						"header": []
